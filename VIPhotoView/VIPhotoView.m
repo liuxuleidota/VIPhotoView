@@ -62,11 +62,6 @@
 
 @implementation VIPhotoView
 
-- (instancetype)initWithImage:(UIImage*)image{
-    return [self initWithFrame:CGRectZero andImage:image];
-}
-
-
 - (instancetype)initWithFrame:(CGRect)frame andImage:(UIImage *)image
 {
     self = [super initWithFrame:frame];

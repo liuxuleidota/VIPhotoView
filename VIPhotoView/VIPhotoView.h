@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class VIPhotoView;
+
+@protocol VIPhotoViewDelegate <NSObject>
+
+- (void)dismissVIPhotoView:(VIPhotoView*)photoView;
+
+@end
+
 @interface VIPhotoView : UIScrollView
 
-- (instancetype)initWithImage:(UIImage*)image;
+@property (nonatomic, weak) id<VIPhotoViewDelegate> closeDelegate;
 
 - (instancetype)initWithFrame:(CGRect)frame andImage:(UIImage *)image;
 
