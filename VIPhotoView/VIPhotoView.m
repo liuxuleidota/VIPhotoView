@@ -148,6 +148,10 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandler:)];
     tapGestureRecognizer.numberOfTapsRequired = 2;
     [_containerView addGestureRecognizer:tapGestureRecognizer];
+
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closePreview:)];
+    [tapGes requireGestureRecognizerToFail:tapGestureRecognizer];
+    [self addGestureRecognizer:tapGes];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -174,6 +178,12 @@
         zoomToRect.origin = CGPointMake(location.x - CGRectGetWidth(zoomToRect)/2, location.y - CGRectGetHeight(zoomToRect)/2);
         [self zoomToRect:zoomToRect animated:YES];
     }
+}
+
+- (void)closePreview:(UITapGestureRecognizer *)recognizer
+{
+    [self removeFromSuperview];
+    [self.closeDelegate dismissVIPhotoView:self];
 }
 
 #pragma mark - Notification
