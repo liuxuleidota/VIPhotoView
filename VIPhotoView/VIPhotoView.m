@@ -20,16 +20,16 @@
 {
     CGSize imageSize = CGSizeMake(self.size.width / self.scale,
                                   self.size.height / self.scale);
-    
+
     CGFloat widthRatio = imageSize.width / size.width;
     CGFloat heightRatio = imageSize.height / size.height;
-    
+
     if (widthRatio > heightRatio) {
         imageSize = CGSizeMake(imageSize.width / widthRatio, imageSize.height / widthRatio);
     } else {
         imageSize = CGSizeMake(imageSize.width / heightRatio, imageSize.height / heightRatio);
     }
-    
+
     return imageSize;
 }
 
@@ -68,61 +68,61 @@
     if (self) {
         self.delegate = self;
         self.bouncesZoom = YES;
-        
+
         // Add container view
         UIView *containerView = [[UIView alloc] initWithFrame:self.bounds];
         containerView.backgroundColor = [UIColor clearColor];
         [self addSubview:containerView];
         _containerView = containerView;
-        
+
         // Add image view
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         imageView.frame = containerView.bounds;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         [containerView addSubview:imageView];
         _imageView = imageView;
-        
+
         // Fit container view's size to image size
         CGSize imageSize = imageView.contentSize;
         self.containerView.frame = CGRectMake(0, 0, imageSize.width, imageSize.height);
         imageView.bounds = CGRectMake(0, 0, imageSize.width, imageSize.height);
         imageView.center = CGPointMake(imageSize.width / 2, imageSize.height / 2);
-        
+
         self.contentSize = imageSize;
         self.minSize = imageSize;
-        
-        
+
+
         [self setMaxMinZoomScale];
-        
+
         // Center containerView by set insets
         [self centerContent];
-        
+
         // Setup other events
         [self setupGestureRecognizer];
         [self setupRotationNotification];
     }
-    
+
     return self;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+
     if (self.rotating) {
         self.rotating = NO;
-        
+
         // update container view frame
         CGSize containerSize = self.containerView.frame.size;
         BOOL containerSmallerThanSelf = (containerSize.width < CGRectGetWidth(self.bounds)) && (containerSize.height < CGRectGetHeight(self.bounds));
-        
+
         CGSize imageSize = [self.imageView.image sizeThatFits:self.bounds.size];
         CGFloat minZoomScale = imageSize.width / self.minSize.width;
         self.minimumZoomScale = minZoomScale;
         if (containerSmallerThanSelf || self.zoomScale == self.minimumZoomScale) { // 宽度或高度 都小于 self 的宽度和高度
             self.zoomScale = minZoomScale;
         }
-        
+
         // Center container view
         [self centerContent];
     }
@@ -200,14 +200,14 @@
     CGSize imageSize = self.imageView.image.size;
     CGSize imagePresentationSize = self.imageView.contentSize;
     CGFloat maxScale = MAX(imageSize.height / imagePresentationSize.height, imageSize.width / imagePresentationSize.width);
+    self.minimumZoomScale = 0.8;
     self.maximumZoomScale = MAX(1, maxScale); // Should not less than 1
-    self.minimumZoomScale = 1.0;
 }
 
 - (void)centerContent
 {
     CGRect frame = self.containerView.frame;
-    
+
     CGFloat top = 0, left = 0;
     if (self.contentSize.width < self.bounds.size.width) {
         left = (self.bounds.size.width - self.contentSize.width) * 0.5f;
@@ -215,10 +215,10 @@
     if (self.contentSize.height < self.bounds.size.height) {
         top = (self.bounds.size.height - self.contentSize.height) * 0.5f;
     }
-    
+
     top -= frame.origin.y;
     left -= frame.origin.x;
-    
+
     self.contentInset = UIEdgeInsetsMake(top, left, top, left);
 }
 

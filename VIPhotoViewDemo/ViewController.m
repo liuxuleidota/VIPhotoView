@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    UIImage *image = [UIImage imageNamed:@"test.jpg"];
+    UIImage *image = [UIImage imageNamed:@"testCard"];
     VIPhotoView *photoView = [[VIPhotoView alloc] initWithFrame:self.view.bounds andImage:image];
     photoView.autoresizingMask = (1 << 6) -1;
     

@@ -16,6 +16,7 @@
 		5F856E211A5D791C0011786E /* VIPhotoViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F856E201A5D791C0011786E /* VIPhotoViewDemoTests.m */; };
 		5F856E2F1A5D7E290011786E /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F856E2E1A5D7E290011786E /* test.jpg */; };
 		A7019D6E1BA40914007242A6 /* VIPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7019D6D1BA40914007242A6 /* VIPhotoView.m */; };
+		A7BBF4F91BA44B1300609913 /* testCard.png in Resources */ = {isa = PBXBuildFile; fileRef = A7BBF4F81BA44B1300609913 /* testCard.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		5F856E2E1A5D7E290011786E /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		A7019D6C1BA40914007242A6 /* VIPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPhotoView.h; sourceTree = "<group>"; };
 		A7019D6D1BA40914007242A6 /* VIPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPhotoView.m; sourceTree = "<group>"; };
+		A7BBF4F81BA44B1300609913 /* testCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testCard.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				5F856E0C1A5D791C0011786E /* ViewController.m */,
 				5F856E0E1A5D791C0011786E /* Main.storyboard */,
 				5F856E111A5D791C0011786E /* Images.xcassets */,
+				A7BBF4F81BA44B1300609913 /* testCard.png */,
 				5F856E2E1A5D7E290011786E /* test.jpg */,
 				5F856E131A5D791C0011786E /* LaunchScreen.xib */,
 				5F856E041A5D791C0011786E /* Supporting Files */,
@@ -219,6 +222,7 @@
 				5F856E151A5D791C0011786E /* LaunchScreen.xib in Resources */,
 				5F856E121A5D791C0011786E /* Images.xcassets in Resources */,
 				5F856E2F1A5D7E290011786E /* test.jpg in Resources */,
+				A7BBF4F91BA44B1300609913 /* testCard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
