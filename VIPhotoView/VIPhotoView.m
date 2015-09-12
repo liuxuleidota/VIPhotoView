@@ -182,8 +182,8 @@
 
 - (void)closePreview:(UITapGestureRecognizer *)recognizer
 {
-    [self removeFromSuperview];
     [self.closeDelegate dismissVIPhotoView:self];
+    [self removeFromSuperview];
 }
 
 #pragma mark - Notification
