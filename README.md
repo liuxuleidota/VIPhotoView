@@ -27,6 +27,21 @@ Init VIPhotoView with frame and image, than add it to a view.
     [self.view addSubview:photoView];
 }
 ```
+注意:如果需要点击imageView后显示此预览界面,需要设置imageView.contentMode,否则可能会出现VIPhotoView计算放大,缩小不正确,不能缩放的问题
+
+```Objc
+imageView.contentMode = UIViewContentModeScaleAspectFit;
+```
+
+加入了单击关闭的delegate
+
+```Objc
+@protocol VIPhotoViewDelegate <NSObject>
+
+- (void)dismissVIPhotoView:(VIPhotoView*)photoView;
+
+@end
+```
 
 ##License
 
