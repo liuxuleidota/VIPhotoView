@@ -200,7 +200,7 @@
     CGSize imageSize = self.imageView.image.size;
     CGSize imagePresentationSize = self.imageView.contentSize;
     CGFloat maxScale = MAX(imageSize.height / imagePresentationSize.height, imageSize.width / imagePresentationSize.width);
-    self.minimumZoomScale = 0.8;
+    self.minimumZoomScale = 1;
     self.maximumZoomScale = MAX(1, maxScale); // Should not less than 1
 }
 
